@@ -3,7 +3,14 @@ import { FaXmark } from "react-icons/fa6";
 const Cart = ({ display, cartDisplay, setCartDisplay, cart, setCart }) => {
   const [book, setBook] = useState()
   const [rafresh, setRafrech] = useState(false)
-  const product = localStorage.getItem("book")
+  const [product, setProduct] = useState()
+
+  useEffect(()=>{
+    const pct = localStorage.getItem("book")
+    setProduct(pct)
+  },[rafresh])
+
+  //const product = localStorage.getItem("book")
   const deleteBook = ()=>{
     localStorage.removeItem("book")
     setRafrech(!rafresh)
