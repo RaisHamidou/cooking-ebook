@@ -1,13 +1,26 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import openMenu from "./../../assets/svg/Hamb.svg";
-import cart from "./../../assets/svg/cart.svg"
+import cartImg from "./../../assets/svg/cart.svg"
 import Image from "next/image";
 import { FaXmark } from "react-icons/fa6";
+import Cart from "../Cart/Cart";
 
 const Header = () => {
   const [displayState, setDisplayState] = useState();
+  const [cartDisplay, setCartDisplay] = useState("none");
+  const [cart, setCart] = useState("translate(100%)");
+  
   const display = { display: displayState };
+
+  const openCart = ()=>{
+    setCartDisplay("block")
+    setTimeout(() => {
+        setCart("translate(0%)")
+    }, 0.5); 
+}
+
+
 
   useEffect(() => {
     const body = document.body;
@@ -24,7 +37,21 @@ const Header = () => {
       closeMenu.style.display = "none";
     }
   }, [display]);
+
+ /*  useEffect(()=>{
+    const body = document.body;
+    const cart = document.getElementById("Cart")
+    if(cartDisplay === "block"){
+      body.style.overflow = "hidden";
+
+    }else{
+      body.style.overflow = "auto";
+      
+    }
+    
+  },[cartDisplay]) */
   return (
+    <>
     <header>
       <div onClick={() => setDisplayState("flex")} className="openMenu">
         <img src={openMenu.src} />
@@ -41,10 +68,13 @@ const Header = () => {
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
-      <div className="cart">
-        <img src={cart.src}/>
-      </div>
+      <div onClick={openCart} className="cart">
+    <img src={cartImg.src}/>
+</div>
+      
     </header>
+    <Cart display={{display: cartDisplay}} setCartDisplay={setCartDisplay} cart={cart} setCart={setCart} />
+    </>
   );
 };
 export default Header;

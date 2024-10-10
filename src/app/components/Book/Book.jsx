@@ -1,6 +1,10 @@
+"use client"
 import React from "react";
 import book from "../../assets/book/book.png";
 const Book = () => {
+  const addToCart = ()=>{
+    localStorage.setItem("book", JSON.stringify([{title: "titre du livre", price: "15€"}]))
+  }
   return (
     <section id="book">
       <div className="container-info-book">
@@ -11,7 +15,7 @@ const Book = () => {
             ever since the 1500s, when an unknown printer took a galley of type
             and scrambled it to make a type specimen book
           </p>
-        <button>Acheter</button>
+        <button >Acheter</button>
       </div>
       <div className="book-img">
         <img src={book.src} alt="book" />

@@ -1,7 +1,13 @@
+"use client"
 import React from "react";
 import bg from "../../assets/hero/desktop.png";
 
 const Hero = () => {
+ 
+  const addToCart = ()=>{
+    localStorage.setItem("book", JSON.stringify({title: "titre du livre", price: "15€"}))
+  }
+  
   return (
     <section className="hero">
       <div className="background">
@@ -11,7 +17,7 @@ const Hero = () => {
         <div className="container-overlay">
           <h1>Titre</h1>
           <h2>Sous titre</h2>
-          <button>Acheter maintenant !</button>
+          <button onClick={addToCart}>Acheter maintenant !</button>
         </div>
       </div>
     </section>

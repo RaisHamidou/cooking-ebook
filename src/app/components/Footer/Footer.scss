@@ -65,6 +65,9 @@ footer {
                     a {
                         color: $pink;
                     }
+                    a:hover{
+                        color: darken($pink, 15);
+                    }
                 }
             }
             li:nth-child(2) {

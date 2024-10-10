@@ -4,10 +4,10 @@ import { FaTiktok,FaInstagram,FaFacebook, FaT } from "react-icons/fa6";
 const Footer = () => {
   return (
   <footer>
-    <div class="container-footer">
-        <div class="footer-logo"><a href="/">Book.</a></div>
+    <div className="container-footer">
+        <div className="footer-logo"><a href="/">Book.</a></div>
 
-        <nav class="social-links">
+        <nav className="social-links">
             <h3>Get In Touch</h3>
             <p>the quick fox jumps over the lazy dog</p>
             <ul>
@@ -16,7 +16,7 @@ const Footer = () => {
                 <li><a href="#"><FaTiktok /></a></li>
             </ul>
         </nav>
-        <nav class="conditions">
+        <nav className="conditions">
             <h3>Conditions</h3>
             <ul>
                 <li><a href="#">Mention Legal</a></li>
@@ -25,7 +25,7 @@ const Footer = () => {
                 <li><a href="#">politique des cookies</a></li>
             </ul>
         </nav>
-        <nav class="informaion">
+        <nav className="informaion">
             <h3>Informations</h3>
             <ul>
                 <li><a href="#">A propos de nous</a></li>
@@ -33,7 +33,7 @@ const Footer = () => {
             </ul>
         </nav>
     </div>
-    <div class="copyright">
+    <div className="copyright">
         <p>&copy;Made with love by <a href="https://numidian.dev">numidian.dev</a> All Right
             Reserved</p>
     </div>

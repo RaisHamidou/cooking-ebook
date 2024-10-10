@@ -36,6 +36,9 @@
                     a {
                         color: $pink;
                     }
+                    a:hover{
+                        color: darken($pink, 15);
+                    }
                 }
             }
             li:nth-child(2) {
@@ -57,7 +60,49 @@
        }
     }
 }
-
+@media screen and (min-width:2560px){
+    #about{
+        .container-info-about{
+            h1{
+                font-size: 3.5rem; 
+            }
+            p{
+                font-size: 2rem;
+                
+            }
+            .about-social {
+              
+                ul {
+                    display: flex;
+                    margin-top: 10px;
+                    li {
+                        font-size: 3rem;
+                        a {
+                            color: $pink;
+                        }
+                        
+                    }
+                }
+                li:nth-child(2) {
+                    margin: 0px 20px 0px 20px;
+                }
+            }
+            
+        }
+        .about-img{
+           width: 30%;
+           height: 500px;
+           border-radius: 7px;
+    
+           img{
+            border-radius: 7px;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+           }
+        }
+    }
+}
 @media screen and (max-width:769px) {
     #about{
         display: flex;

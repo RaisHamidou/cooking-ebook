@@ -5,8 +5,16 @@ import qs from "qs"
 
 const app = express()
 app.use(express.json())
-
-app.get("api/deauthorize", (req,res)=>{
+app.get("/api/instagram-posts", async (req, res) => {
+    //const TOKEN = process.env.INSTAGRAM_ACCESS_TOKEN;
+  
+    const TOKEN = "IGQWROeHlxbmlPLVYtaC1YNEx6bm5KU1lJeW9OWFFLT3d0UmxFRERyb0k1RmJYSUk4N192VnNrSUZAfUkJINEtsT0ZAFcWdhSklMMVZAZATU1Gc01YaGJqQWwwTzRyYWNpcll6Mjg5ODFHOGI4N2hPSjRIMkc5NHJBZA28ZD";
+    const response =  await axios.get(`https://graph.instagram.com/v20.0/me/media?fields=id,caption,media_type,media_url,timestamp&access_token=${TOKEN}
+    `);
+    const posts = await response.data;
+    res.json(posts);
+  }); 
+/*app.get("api/deauthorize", (req,res)=>{
     const useId = req.body.user_id
     if(useId){
         console.log("L'utilisateur avec l'ID ${userId} a révoqué l'autorisation !")
@@ -51,7 +59,7 @@ app.get("/api/callback", async (req, res) => {
         console.error(error.response?.data || error.message);
         return res.status(500).send("Erreur serveur lors de la requête d'accès au token");
     }
-});
+});*/
 
 
 export default app
