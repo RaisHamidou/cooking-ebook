@@ -80,6 +80,8 @@
             .delete {
                 cursor: pointer;
                 margin-top: 10px;
+                color: $pink;
+                
             }
         }
         .img-product-added {
@@ -87,12 +89,23 @@
             height: 90px;
             border-radius: 10px;
             margin-right: 10px;
-            background-color: $pink;
+            //background-color: $pink;
             img {
                 width: 100%;
                 height: 100%;
-                object-fit: cover;
+                object-fit: contain;
                 border-radius: 10px;
+            }
+        }
+        .containter-price{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 10px;
+            h2{
+                font-size: 1rem;
+                    //font-weight: normal;
+                    font-family: $montserrat;
             }
         }
 
