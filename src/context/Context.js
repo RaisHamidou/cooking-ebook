@@ -1,10 +1,14 @@
 "use client"
+import URL from "@/components/config/config";
+import axios from "axios";
 import React,{createContext, useState, useEffect} from "react";
 
 export const MyContext = createContext();
  const MyContextProvider = ({children})=>{
     const [currentCart, setCurrentCart] = useState([]);
     const [refrech, setRefrech] = useState(false);
+   
+
     useEffect(() => {
         const storedCart = localStorage.getItem("book");
         if (storedCart) {
@@ -30,8 +34,15 @@ export const MyContext = createContext();
       }
 
       const total = currentCart.reduce((acc, item) => acc + Number(item.price), 0);
+
+      const clearCart = () => {
+        setCurrentCart([]); // Vider le panier dans l'état
+        localStorage.removeItem("book"); // Supprimer les données du panier du stockage local
+        setRefrech(!refrech); // Actualiser si nécessaire
+      };
+      
     return(
-        <MyContext.Provider value={{currentCart, setCurrentCart, addToCart, checkCart, total}}>
+        <MyContext.Provider value={{currentCart, setCurrentCart, addToCart, checkCart, total, clearCart}}>
             {children}
         </MyContext.Provider>
     )

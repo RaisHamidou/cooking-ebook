@@ -7,7 +7,6 @@ const PayementPage = ()=>{
 
     <div>
         <Header/>
-        {/* <h1 className="title-page">Confirmez votre panier et procédez au paiement</h1> */}
         <PaymentComponents/> 
         <Footer/>
     </div>

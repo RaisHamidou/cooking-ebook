@@ -11,20 +11,13 @@ import axios from "axios";
 import EbookHome from "@/components/EbookHome/EbookHome";
 
 export default async function Home() {
-  const res = await axios.get("http://localhost:4000/api/books",{
-    headers: {
-        'Authorization': 'bejaia1984', 
-        'Content-Type': 'application/json'
-    }
-
-})
-const data = await res.data
+  
   return (
     <main>
-      <Header />
+      <Header /> 
       <Hero />
-      <Book />
-      <EbookHome/>
+       <Book />
+   
      
       <About />
       <Posts />

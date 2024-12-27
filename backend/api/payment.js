@@ -45,31 +45,57 @@ router.post("/confirm-payment", async (req, res) => {
         };
       });
 
+     
       const transporter = nodemailer.createTransport({
-        service: "gmail",
-        port: 465,
+        host: "smtp.ionos.fr",
+        port: 465,  // Port SMTP avec TLS
         secure: true,
         auth: {
-          user: "contact.dzairhistory@gmail.com",
-          pass: "pjeayqokvsvnmvud",
+          user: "contact@mrscooking.com",
+          pass: "boumerdes2984"
         },
       });
-
       const mailOptions = {
         from: process.env.EMAIL_USER,
         to: email,
         subject: 'Vos ebooks sont disponibles',
         text: 'Merci pour votre achat. Vous trouverez vos ebooks en pièce jointe.',
-        html: `
-            <div style="font-family: Arial, sans-serif; line-height: 1.6;">
-                <h1 style="color: #4CAF50;">Merci pour votre achat!</h1>
-                <p>Bonjour,</p>
-                <p>Vous trouverez vos ebooks en pièce jointe.</p>
-                <p style="background-color: #f0f0f0; padding: 10px; border-radius: 5px;">
-                    Cordialement,<br>
-                    <strong>L'équipe</strong>
-                </p>
-            </div>
+        html: `<div style="background: #F5F5F5; width: 90%; border-radius: 7px; font-family: 'Poppins', sans-serif;">
+  <div style="padding: 30px;box-sizing: border-box;">
+
+    <div style="text-align: center; margin-bottom: 20px;">
+      img
+    </div>
+    <div style="color: #FF4D6D; font-size: 2rem; font-weight: 700; text-align: center;">
+      Merci pour votre achat !
+    </div>
+    <p style="font-size: 1rem; color: #8E8E8E; text-align: center;">
+      Votre commande est disponible dès maintenant !
+    </p>
+
+    <h2 style="color: #444;">Détails de votre commande :</h2>
+    <div style="width:100%; padding:10px; box-sizing: border-box ; background:#D9D9D9;border-radius:7px">
+      <ul style="color: #555; font-size: 1rem; width:50%; font-weight:500;">
+        <li>Ebook 1</li>
+        <li>Ebook 2</li>
+      </ul>
+    </div>
+    <div style="color:#8E8E8E">
+
+      <p>Vous trouverez <span style="color: #FF4D6D;">
+          en pièce jointe </span> les fichiers correspondants à votre commande. </p>
+      <p>Nous vous remercions de votre confiance.</P>
+      <p>Cordialement,<br> <span style="font-weight: 700;"> L'équipe </span></P>
+    </div>
+  </div>
+
+  <footer style="width:100%; box-sizing: border-box;background:#D9D9D9;padding:20px">
+    <p style="text-align:center;color:#8E8E8E;">Retrouvez-nous egalement sur :</p>
+    <div style="text-align: center; margin-top: 20px;">
+     <img src="../../public/image/icons/insta.png" alt="instz"/>
+    </div>
+  </footer>
+</div>
         `,
         attachments: attachments,
     };

@@ -4,7 +4,7 @@ import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import axios from "axios";
 import { MyContext } from "@/context/Context";
 import URL from "../config/config";
-
+import { useRouter } from "next/navigation";
 const CheckoutForm = () => {
   const stripe = useStripe();
   const elements = useElements();
@@ -13,9 +13,9 @@ const CheckoutForm = () => {
   const [emailValue, setEmailValue] = useState();
   const [numberValue, setNumberValue] = useState();
   const [adressValue, setAdressValue] = useState();
-  const { currentCart, total } = useContext(MyContext);
+  const { currentCart, total, clearCart } = useContext(MyContext);
 
- 
+ const route = useRouter()
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -73,6 +73,8 @@ const CheckoutForm = () => {
           bookIds: bookIds,
       }),
     });
+    clearCart()
+     route.push("/thank-you") 
     }
   };
 

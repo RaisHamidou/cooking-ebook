@@ -66,8 +66,8 @@ const Header = () => {
       <nav style={display} className="mainMenu">
         <ul className="menu">
           <li className={pathName === "/" ? "active":""}> <a href="/">Accueil</a></li>
-          <li className={pathName === "/ebooks" ? "active":""}><a href="/ebooks">Ebook</a></li>
-          <li className={pathName === "/#about" ? "active":""}><a href="/#about">About</a></li>
+          <li className={pathName.includes("/books") ? "active":""}><a href="/books">Ebook</a></li>
+          <li className={pathName === "/about" ? "active":""}><a href="/#about">About</a></li>
           <li className={pathName === "/contact" ? "active":""}><a href="/contact">Contact</a></li>
         </ul>
       </nav>
